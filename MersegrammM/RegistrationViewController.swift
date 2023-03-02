@@ -6,8 +6,14 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseCore
+import FirebaseDatabase
+import FirebaseStorage
 
-class RegistrationViewController: UIViewController {
+
+
+class RegistrationViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     /*        MARK: - Outlets      */
     
@@ -22,15 +28,41 @@ class RegistrationViewController: UIViewController {
     
     @IBOutlet weak var haveAnAccountButton: UIButton!
     
+    
+    /*      MARK: var/let      */
+    var selectedImage: UIImage?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-
-        // Do any additional setup after loading the view.
+        addTargetTotextField()
+        addTapGestureToImageView()
     }
     
     
-    
+    /*        MARK: - Choose photo      */
+    //Um PhotoView als Button zu benutzen
+    func addTapGestureToImageView(){
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleSelectProfilPhoto))
+        profilImage.addGestureRecognizer(tapGesture)
+        profilImage.isUserInteractionEnabled = true
+    }
+    @objc func handleSelectProfilPhoto(){
+       let pickerController = UIImagePickerController()
+        pickerController.delegate = self
+        pickerController.allowsEditing = true
+        present(pickerController, animated: true, completion: nil)
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let editImage = info[.editedImage] as? UIImage{
+            profilImage.image = editImage
+            selectedImage = editImage
+        }else if let originalImage = info[.originalImage] as? UIImage{
+            profilImage.image = originalImage
+            selectedImage = originalImage
+        }
+        dismiss(animated: true, completion: nil)
+    }
     
     
     
@@ -65,12 +97,77 @@ class RegistrationViewController: UIViewController {
         haveAnAccountButton.setAttributedTitle(attributedText, for: .normal)
         
     }
+    func addTargetTotextField(){
+        usernameTextField.addTarget(self, action: #selector(textFieldDidChange), for: UIControl.Event.editingChanged)
+        emailTextField.addTarget(self, action: #selector(textFieldDidChange), for: UIControl.Event.editingChanged)
+                                 passwordTextField.addTarget(self, action: #selector(textFieldDidChange), for: UIControl.Event.editingChanged)
+    }
+    @objc func textFieldDidChange(){
+        let isText = usernameTextField.text?.count ?? 0 > 0 &&
+        emailTextField.text?.count ?? 0 > 0 &&
+        passwordTextField.text?.count ?? 0 > 0
+        
+        if isText{
+            accountErstellen.backgroundColor = UIColor(white: 1.0, alpha: 0.8)
+            accountErstellen.layer.cornerRadius = 5
+            accountErstellen.isEnabled = true
+        } else
+        {
+            accountErstellen.backgroundColor = UIColor(white: 0.8, alpha: 0.2)
+            accountErstellen.layer.cornerRadius = 5
+            accountErstellen.isEnabled = false
+        }
+    }
+    
     
     
     /*        MARK: - Action      */
     
     @IBAction func createButtonTaped(_ sender: UIButton) {
+        Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!)
+        { (user, error) in
+            if let err = error{
+                print(err.localizedDescription)
+                return
+            }
+            print("USER MIT DEM EMAIL", user?.user.email ?? "")
+            //User informationen in Datenbank eingeben
+            guard let newUser = user?.user else { return }
+            let uid = newUser.uid
+            
+            self.uploadUserData(uid: uid, username: self.usernameTextField.text!, email: self.emailTextField.text!)
+        }
+        
     }
+    func uploadUserData(uid:String, username:String, email:String){
+        
+        let storageRef = Storage.storage().reference().child("profil_image").child(uid)
+        guard let image = selectedImage else {
+            return
+        }
+        guard let uploadData = image.jpegData(compressionQuality: 0.1) else{return }
+        
+        storageRef.putData(uploadData, metadata: nil){(metadata, error) in
+            if let err = error {
+                print(err.localizedDescription)
+                return
+            }
+            storageRef.downloadURL(completion: {(url, error)in
+                if error != nil {
+                    print(error?.localizedDescription)
+                    return
+                }
+                let profilImageUrlString = url?.absoluteString
+                print(profilImageUrlString!)
+                let ref =  Database.database(url:"https://mersegrammm-default-rtdb.europe-west1.firebasedatabase.app/").reference().child("users").child(uid)
+                print("Datenbank Adresse: ", ref)
+                
+                ref.setValue(["username" : self.usernameTextField.text!, "email" : self.emailTextField.text!, "profilImageUrl": profilImageUrlString ?? "Kein Bild vorhanden"])
+            })
+        }
+    }
+    
+    
     
     
     /*       MARK: - Navigation       */

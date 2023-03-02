@@ -11,19 +11,25 @@
 		783CDDFC29786F1A006CD833 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783CDDFB29786F1A006CD833 /* SceneDelegate.swift */; };
 		783CDE0329786F1B006CD833 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 783CDE0229786F1B006CD833 /* Assets.xcassets */; };
 		783CDE0E2978700F006CD833 /* Start.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 783CDE0D2978700F006CD833 /* Start.storyboard */; };
+		785604AF29ADF0F600E23723 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 785604AE29ADF0F600E23723 /* GoogleService-Info.plist */; };
 		78B5537429A63E8D006DE4BE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B5537329A63E8D006DE4BE /* LoginViewController.swift */; };
 		78B5537629A63EAC006DE4BE /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B5537529A63EAC006DE4BE /* RegistrationViewController.swift */; };
+		ED6FDADBF0C5AADF8F175764 /* Pods_MersegrammM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F94169BBE333EB0CD8407F5 /* Pods_MersegrammM.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F94169BBE333EB0CD8407F5 /* Pods_MersegrammM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MersegrammM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		783CDDF629786F1A006CD833 /* MersegrammM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MersegrammM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		783CDDF929786F1A006CD833 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		783CDDFB29786F1A006CD833 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		783CDE0229786F1B006CD833 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		783CDE0729786F1B006CD833 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		783CDE0D2978700F006CD833 /* Start.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Start.storyboard; sourceTree = "<group>"; };
+		785604AE29ADF0F600E23723 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		78B5537329A63E8D006DE4BE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		78B5537529A63EAC006DE4BE /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		87B938694E0A7C208268D868 /* Pods-MersegrammM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MersegrammM.debug.xcconfig"; path = "Target Support Files/Pods-MersegrammM/Pods-MersegrammM.debug.xcconfig"; sourceTree = "<group>"; };
+		AB9B0D347FF0363CFFC4B124 /* Pods-MersegrammM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MersegrammM.release.xcconfig"; path = "Target Support Files/Pods-MersegrammM/Pods-MersegrammM.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +37,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED6FDADBF0C5AADF8F175764 /* Pods_MersegrammM.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2BE00EF5177257B80046F5F0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				87B938694E0A7C208268D868 /* Pods-MersegrammM.debug.xcconfig */,
+				AB9B0D347FF0363CFFC4B124 /* Pods-MersegrammM.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		783CDDED29786F1A006CD833 = {
 			isa = PBXGroup;
 			children = (
 				783CDDF829786F1A006CD833 /* MersegrammM */,
 				783CDDF729786F1A006CD833 /* Products */,
+				2BE00EF5177257B80046F5F0 /* Pods */,
+				A4F7145A3972C20440B324D8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,11 +79,20 @@
 				783CDDFB29786F1A006CD833 /* SceneDelegate.swift */,
 				783CDE0229786F1B006CD833 /* Assets.xcassets */,
 				783CDE0729786F1B006CD833 /* Info.plist */,
+				785604AE29ADF0F600E23723 /* GoogleService-Info.plist */,
 				783CDE0D2978700F006CD833 /* Start.storyboard */,
 				78B5537329A63E8D006DE4BE /* LoginViewController.swift */,
 				78B5537529A63EAC006DE4BE /* RegistrationViewController.swift */,
 			);
 			path = MersegrammM;
+			sourceTree = "<group>";
+		};
+		A4F7145A3972C20440B324D8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3F94169BBE333EB0CD8407F5 /* Pods_MersegrammM.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +102,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 783CDE0A29786F1B006CD833 /* Build configuration list for PBXNativeTarget "MersegrammM" */;
 			buildPhases = (
+				D11677CBF9BE203394E1E7B0 /* [CP] Check Pods Manifest.lock */,
 				783CDDF229786F1A006CD833 /* Sources */,
 				783CDDF329786F1A006CD833 /* Frameworks */,
 				783CDDF429786F1A006CD833 /* Resources */,
+				AF3B86CABAD0D84028D6796B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -127,10 +157,53 @@
 			files = (
 				783CDE0329786F1B006CD833 /* Assets.xcassets in Resources */,
 				783CDE0E2978700F006CD833 /* Start.storyboard in Resources */,
+				785604AF29ADF0F600E23723 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AF3B86CABAD0D84028D6796B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MersegrammM/Pods-MersegrammM-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MersegrammM/Pods-MersegrammM-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MersegrammM/Pods-MersegrammM-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D11677CBF9BE203394E1E7B0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MersegrammM-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		783CDDF229786F1A006CD833 /* Sources */ = {
@@ -263,6 +336,7 @@
 		};
 		783CDE0B29786F1B006CD833 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 87B938694E0A7C208268D868 /* Pods-MersegrammM.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -294,6 +368,7 @@
 		};
 		783CDE0C29786F1B006CD833 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB9B0D347FF0363CFFC4B124 /* Pods-MersegrammM.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
