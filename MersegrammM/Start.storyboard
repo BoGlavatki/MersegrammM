@@ -12,7 +12,7 @@
         <!--Login View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="Y6W-OH-hqX" customClass="LoginViewController" customModule="MersegrammM" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginVC" modalPresentationStyle="fullScreen" id="Y6W-OH-hqX" customClass="LoginViewController" customModule="MersegrammM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -48,7 +48,7 @@
                                     <constraint firstAttribute="height" constant="34" id="u7p-5H-ZRh"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zo4-Sy-p5t">
                                 <rect key="frame" x="20" y="737.66666666666663" width="353" height="40.333333333333371"/>
@@ -94,6 +94,7 @@
                         <outlet property="emailTextField" destination="rwC-XQ-Vkp" id="wXy-DS-QI6"/>
                         <outlet property="loginButton" destination="9Ja-bQ-fav" id="WtN-R0-5c8"/>
                         <outlet property="passswordField" destination="o4c-bc-afW" id="faA-f4-6xQ"/>
+                        <segue destination="cv9-cd-VKM" kind="presentation" identifier="loginSegue" id="tUo-oo-sal"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -122,7 +123,7 @@
                                 <rect key="frame" x="20" y="380.66666666666669" width="353" height="34"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AQe-iQ-ebh">
                                 <rect key="frame" x="5" y="494.66666666666669" width="383" height="41.333333333333314"/>
@@ -183,13 +184,25 @@
                         <outlet property="passwordTextField" destination="vB8-DN-uaa" id="pUo-W3-ibE"/>
                         <outlet property="profilImage" destination="IaL-fL-fk8" id="Ctv-T6-2XR"/>
                         <outlet property="usernameTextField" destination="f6o-AO-DzM" id="X5F-IE-koY"/>
+                        <segue destination="cv9-cd-VKM" kind="presentation" identifier="registerSegue" id="vYD-G3-vQx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1iI-xE-xaU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="893.89312977099235" y="-145.07042253521126"/>
         </scene>
+        <!--Main-->
+        <scene sceneID="ldB-Or-YpZ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="cv9-cd-VKM" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TBW-NX-M8N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="372" y="401"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="vYD-G3-vQx"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="Profil_Filled" width="25" height="25"/>
         <systemColor name="opaqueSeparatorColor">

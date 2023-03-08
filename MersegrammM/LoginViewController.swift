@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
     /*      MARK: - Outlets    */
@@ -20,8 +21,23 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         setupViews()
         addTargetToTextField()
-        
-        // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if Auth.auth().currentUser != nil{
+            DispatchQueue.main.async {
+                Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { (timer) in
+                    
+                    self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                }
+            }
+        }
+    }
+    
+    /*     MARK: Dismiss Keyboard       */
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
    
     /*  MARK: - Methoden   */
@@ -58,7 +74,16 @@ class LoginViewController: UIViewController {
     
     
   @IBAction func loginButton(_ sender: UIButton) {
-      print("login")
+      view.endEditing(true)
+      Auth.auth().signIn(withEmail: emailTextField.text!, password: passswordField.text!){
+          (user, error) in
+          if let err = error{
+              print(err.localizedDescription)
+              return
+          }
+          print("User: \(user?.user.email ?? "") ist eingeloggt")
+          self.performSegue(withIdentifier: "loginSegue", sender: nil)
+      }
     }
     
     

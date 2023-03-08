@@ -64,6 +64,11 @@ class RegistrationViewController: UIViewController, UIImagePickerControllerDeleg
         dismiss(animated: true, completion: nil)
     }
     
+    /*     MARK: Dismiss Keyboard       */
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
     
     
     /*        MARK: - Methods      */
@@ -124,6 +129,7 @@ class RegistrationViewController: UIViewController, UIImagePickerControllerDeleg
     /*        MARK: - Action      */
     
     @IBAction func createButtonTaped(_ sender: UIButton) {
+        view.endEditing(true)
         Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!)
         { (user, error) in
             if let err = error{
@@ -136,6 +142,7 @@ class RegistrationViewController: UIViewController, UIImagePickerControllerDeleg
             let uid = newUser.uid
             
             self.uploadUserData(uid: uid, username: self.usernameTextField.text!, email: self.emailTextField.text!)
+            self.performSegue(withIdentifier: "registerSegue", sender: nil)
         }
         
     }
