@@ -75,18 +75,10 @@ class LoginViewController: UIViewController {
     
   @IBAction func loginButton(_ sender: UIButton) {
       view.endEditing(true)
-      Auth.auth().signIn(withEmail: emailTextField.text!, password: passswordField.text!){
-          (user, error) in
-          if let err = error{
-              print(err.localizedDescription)
-              return
-          }
-          print("User: \(user?.user.email ?? "") ist eingeloggt")
+      AuthentificationService.signIn(email: emailTextField.text!, password: passswordField.text!) {
           self.performSegue(withIdentifier: "loginSegue", sender: nil)
+      } onError: { error in
+          print(error!)
       }
     }
-    
-    
-  
-
 }

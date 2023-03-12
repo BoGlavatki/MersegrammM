@@ -130,23 +130,24 @@ class RegistrationViewController: UIViewController, UIImagePickerControllerDeleg
     
     @IBAction func createButtonTaped(_ sender: UIButton) {
         view.endEditing(true)
-        Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!)
-        { (user, error) in
-            if let err = error{
-                print(err.localizedDescription)
-                return
-            }
-            print("USER MIT DEM EMAIL", user?.user.email ?? "")
-            //User informationen in Datenbank eingeben
-            guard let newUser = user?.user else { return }
-            let uid = newUser.uid
-            
-            self.uploadUserData(uid: uid, username: self.usernameTextField.text!, email: self.emailTextField.text!)
-            self.performSegue(withIdentifier: "registerSegue", sender: nil)
+        if selectedImage == nil {
+            print("bitte foto wählen")
+            return
         }
+        guard let image = selectedImage else {return}
+        guard let imageData = image.jpegData(compressionQuality: 0.1) else {return}
+        AuthentificationService.createUser(username: usernameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, imageData: imageData) {
+            self.performSegue(withIdentifier: "registerSegue", sender: nil)
+        } onError: { error in
+            print(error)
+        }
+
+           
+        
         
     }
-    func uploadUserData(uid:String, username:String, email:String){
+    /*
+     func uploadUserData(uid:String, username:String, email:String){
         
         let storageRef = Storage.storage().reference().child("profil_image").child(uid)
         guard let image = selectedImage else {
@@ -173,7 +174,7 @@ class RegistrationViewController: UIViewController, UIImagePickerControllerDeleg
             })
         }
     }
-    
+    */
     
     
     

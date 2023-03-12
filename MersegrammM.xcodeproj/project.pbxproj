@@ -23,6 +23,7 @@
 		786BF95129B9028F008547F4 /* Share.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 786BF95029B9028F008547F4 /* Share.storyboard */; };
 		786BF95329B902C2008547F4 /* Activity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 786BF95229B902C2008547F4 /* Activity.storyboard */; };
 		786BF95529B902D2008547F4 /* Profil.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 786BF95429B902D2008547F4 /* Profil.storyboard */; };
+		788CCBE129BA4F8B005D9B24 /* AuthentificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788CCBE029BA4F8B005D9B24 /* AuthentificationService.swift */; };
 		78B5537429A63E8D006DE4BE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B5537329A63E8D006DE4BE /* LoginViewController.swift */; };
 		78B5537629A63EAC006DE4BE /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B5537529A63EAC006DE4BE /* RegistrationViewController.swift */; };
 		ED6FDADBF0C5AADF8F175764 /* Pods_MersegrammM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F94169BBE333EB0CD8407F5 /* Pods_MersegrammM.framework */; };
@@ -48,6 +49,7 @@
 		786BF95029B9028F008547F4 /* Share.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Share.storyboard; sourceTree = "<group>"; };
 		786BF95229B902C2008547F4 /* Activity.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Activity.storyboard; sourceTree = "<group>"; };
 		786BF95429B902D2008547F4 /* Profil.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profil.storyboard; sourceTree = "<group>"; };
+		788CCBE029BA4F8B005D9B24 /* AuthentificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthentificationService.swift; sourceTree = "<group>"; };
 		78B5537329A63E8D006DE4BE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		78B5537529A63EAC006DE4BE /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		87B938694E0A7C208268D868 /* Pods-MersegrammM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MersegrammM.debug.xcconfig"; path = "Target Support Files/Pods-MersegrammM/Pods-MersegrammM.debug.xcconfig"; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				7869C7DD29B11C4200B0149A /* AktivityViewController.swift */,
 				78B5537329A63E8D006DE4BE /* LoginViewController.swift */,
 				78B5537529A63EAC006DE4BE /* RegistrationViewController.swift */,
+				788CCBE029BA4F8B005D9B24 /* AuthentificationService.swift */,
 			);
 			path = MersegrammM;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 				78B5537629A63EAC006DE4BE /* RegistrationViewController.swift in Sources */,
 				7869C7DC29B11C3000B0149A /* ShareViewController.swift in Sources */,
 				7869C7DE29B11C4200B0149A /* AktivityViewController.swift in Sources */,
+				788CCBE129BA4F8B005D9B24 /* AuthentificationService.swift in Sources */,
 				783CDDFC29786F1A006CD833 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
